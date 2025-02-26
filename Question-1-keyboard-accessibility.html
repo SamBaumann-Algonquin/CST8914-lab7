@@ -6,126 +6,222 @@
   <title>The funion</title>
   <style>
     *,
-    *::after,
-    *::before {
-      box-sizing: border-box;
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 30px; /* bottom = newsletter height */
+  font-family: Lato, sans-serif;
+}
+
+a{
+  color: #006b3a;
+}
+a:focus,
+    button:focus,
+    input:focus {
+      outline: 2px solid #006b3a; /* Add focus indicator */
+      outline-offset: 2px; /* Spacing for better visibility */
     }
 
-    html {
-      position: relative;
-      min-height: 100%;
+h2 {
+  margin-top: 0;
+}
+
+article h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  -webkit-margin-after: 0.83em;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+header {
+  margin-bottom: 48px;
+  box-shadow: 0 0 8px #bbb;
+  border-bottom: 1px solid #aaa;
+}
+
+.logo {
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+  top: -10000px;
+}
+
+.menu {
+  padding: 16px 48px;
+}
+
+.menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 18px;
+}
+.menu a:focus {
+      outline: 2px solid #ffcc00; /* Visible focus outline for menu items */
     }
 
-    body {
-      margin: 30px;
-      font-family: Lato, sans-serif;
-    }
+.menu a:last-child {
+  margin-right: 0;
+}
 
-    a {
-      color: #006b3a;
-    }
+.menu .btn-search img {
+  vertical-align: top;
+  margin-right: 8px;
+  width: 22px;
+  height: 22px;
+}
 
-    main a {
-      outline: none; /* Removed outline override to allow focus indicator */
-    }
+article p {
+  line-height: 1.4;
+}
 
-    h2 {
-      margin-top: 0;
-    }
+.main-story {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+.main-story img {
+  width: 50%;
+}
 
-    header {
-      margin-bottom: 48px;
-      box-shadow: 0 0 8px #bbb;
-      border-bottom: 1px solid #aaa;
-    }
+.main-story .info {
+  margin-right: 50%;
+  padding-right: 16px;
+}
 
-    .logo {
-      text-align: center;
-      font-size: 32px;
-      margin: 0;
-      padding: 16px 0;
-      border-bottom: 1px solid #ddd;
-    }
+.tier-header {
+  border-top: 1px solid #aaa;
+  margin-bottom: 15px;
+}
 
-    .menu {
-      padding: 16px 48px;
-    }
+.tier-header h2 {
+  font-size: 17px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  display: inline-block;
+  margin: 0;
+  color: #fff;
+  background: #006b3a;
+}
 
-    .menu a {
-      color: #000;
-      text-decoration: none;
-      font-size: 18px;
-      margin-right: 18px;
-    }
+.side-by-side .column {
+  display: inline-block;
+  vertical-align: top;
+}
 
-    /* Visible focus indicator for menu items */
-    .menu a:focus {
-      outline: 3px solid #006b3a; /* Green outline for focus */
-    }
+.side-by-side article img {
+  max-width: 100%;
+}
 
-    /* Logical and intuitive focus order by removing tabindex -1 */
-    .menu a {
-      /* Removing tabindex to include them in normal focus order */
-      tabindex: 0;
-    }
+.side-by-side .column:first-child {
+  width: 70%;
+  padding-right: 16px;
+  border-right: 1px solid #aaa;
+}
 
-    article p {
-      line-height: 1.4;
-    }
+.side-by-side .column:last-child {
+  padding-left: 16px;
+  width: 29%; /* Account for whitespace gap from display: inline-block */
+}
 
-    .newsletter {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 60px;
-      width: 100%;
-      background: #000;
-      color: #fff;
-      border-top: 1px solid #aaa;
-    }
+.side-by-side .column:last-child .headline {
+  font-size: 18px;
+}
 
-    .newsletter input:focus, 
-    .newsletter button:focus {
-      outline: 3px solid #006b3a; /* Visible focus for inputs and buttons */
-    }
+.three-col {
+  margin-bottom: 100px;
+}
 
-    /* Ensure focus indicators for Read More links */
-    .info a:focus {
-      outline: 3px solid #006b3a;
-    }
+.three-col h2,
+.three-col h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+.three-col .columns {
+  display: flex;
+}
+
+.three-col .columns article {
+  flex: 1;
+  margin-right: 18px;
+}
+
+.three-col img {
+  width: 100%;
+}
+
+.three-col .columns article:last-child {
+  margin-right: 0;
+}
+
+.newsletter {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border-top: 1px solid #aaa;
+}
+
+.newsletter h3 {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+/* Helpers */
+.pull-right {
+  float: right;
+}
+
   </style>
 </head>
 
 <body>
   <header>
+
     <div class="container">
       <h1 class="logo">The Funion</h1>
       
-      <!-- Added focusable links for better accessibility -->
-      <nav class="menu">
-        <a href="#">Home</a>
+      <!-- Maybe this could be improved with aria-activedescendant later? -->
+      <nav class="menu" role="navigation" aria-label="Main menu">
+   <a href="#">Home</a>
         <a href="#">Politics</a>
         <a href="#">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
-        <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
-      </nav>
+        <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a>
+</nav>
     </div>
   </header>
-
-  <div class="newsletter">
-    <div class="container">
-      <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text" aria-label="Email address" placeholder="Enter your email">
-      <button type="button" onfocus="getFocus()">Sign up</button>
-    </div>
+  
   </div>
-
   <main class="container">
     <h2 class="offscreen">Top story</h2>
     <article class="main-story">
@@ -135,6 +231,7 @@
         <p>
           GRAND RAPIDS, MILorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
           aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
+          
         </p>
       </div>
     </article>
@@ -142,11 +239,11 @@
     <div class="side-by-side">
       <div class="column">
         <div class="tier-header">
-          <h2 tabindex="0">In the news</h2> <!-- Added tabindex for keyboard focus -->
+          <h2 tabindex="0">In the news</h2>
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
-          <p><a href="#"><b>Read More</b></a></p> <!-- Visible focus indicator applied -->
+      <p><a href="#" tabindex="0"><b>Read More</b></a></p> <!-- Ensured tabindex is 0, so it's part of normal tabbing order -->
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
       </div>
@@ -157,14 +254,12 @@
             <h3 class="headline">Telephone booths. How is this still a thing?</h3>
             <p>
               LONDON-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a> <!-- Focus indicator -->
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
             </p>
           </div>
         </article>
       </div>
     </div>
-    
-    <!-- Ensure focusable elements for article links -->
     <div class="three-col">
       <div class="tier-header">
         <h2>Recommended</h2>
@@ -189,13 +284,25 @@
         </article>
       </div>
     </div>
+    
   </main>
+ 
+  <footer>
+    <div class="newsletter">
+    <div class="container">
+      <h3>Like the Funion? Consider joining our newsletter!</h3>
+      <input type="text">
+      <button type="button" onclick="getFocus()">Sign up</button></div><!--changed onfocus to on click-->
+      
+    </div>
+  </footer>
+  
   
   <script>
     function getFocus() {
       window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html','mywindow').focus()
     }
-  </script>
+    </script>
 </body>
 
 </html>
